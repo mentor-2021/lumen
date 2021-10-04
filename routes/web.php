@@ -16,3 +16,24 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+// https://www.onlinecode.org/laravel-lumen-restful-api-tutorial/
+$router->get('/status', function () {
+    $data = [
+        "status" => true,
+        "name" => "lumen",
+    ];
+    return response()->json($data);
+});
+
+$router->group(['prefix' => 'v1'], function () use ($router) {
+    $router->group(['prefix' => 'users'], function () use ($router) {
+        $router->get('/', function () {
+            $data = [
+                "status" => true,
+                "name" => "users",
+            ];
+            return response()->json($data);
+        });
+    });
+});

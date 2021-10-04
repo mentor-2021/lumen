@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        $this->call(UserSeeder::class);
+
+        // $exclude = ['DatabaseSeeder'];
+        // $seeder = [];
+
+        // $files = File::files(dirname(__FILE__));
+        // foreach ($files as $path) {
+        //     $filename = pathinfo($path)['filename'];
+        //     if (in_array($filename, $exclude)) {
+        //         continue;
+        //     }
+        //     array_push($seeder, $filename);
+        // }
+
+        // $this->call($seeder);
     }
 }
