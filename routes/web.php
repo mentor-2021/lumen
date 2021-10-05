@@ -36,4 +36,11 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
             return response()->json($data);
         });
     });
+
+    $router->group(['prefix' => 'auth'], function () use ($router) {
+        $router->post(
+            '/',
+            ['uses' => 'AuthController@login']
+        );
+    });
 });
