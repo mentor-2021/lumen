@@ -19,12 +19,18 @@ class AuthController extends Controller
         // });
         // $target = array_shift($data);
 
-        foreach ($masterData as $target) {
-            if ($target["email"] == $payload["email"]) {
+        $target = [];
+        foreach ($masterData as $element) {
+            if ($element["email"] == $payload["email"]) {
+                $target = $element;
                 break;
             }
         }
 
-        return $this->render($target);
+        if ($target) {
+            return $this->success($target);
+        }
+
+        return $this->fail("invalid data");
     }
 }
