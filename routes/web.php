@@ -43,4 +43,16 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
             ['uses' => 'AuthController@login']
         );
     });
+
+    $router->group(['prefix' => 'users'], function () use ($router) {
+        $router->get(
+            '/{id}',
+            ['uses' => 'UserController@detail']
+        );
+
+        $router->put(
+            '/{id}/plan',
+            ['uses' => 'UserController@updatePlan']
+        );
+    });
 });

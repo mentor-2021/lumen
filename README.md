@@ -6,15 +6,14 @@ composer clearcache && composer dump-autoload
 composer dump-autoload
 php artisan migrate:fresh && php artisan db:seed
 
-
-
 login:
-  - email
-  - facebook
-  - gmail
+
+-   email
+-   facebook
+-   gmail
 
 user:
-  - free
-  - monthly
-  - season
-  - annual
+
+-   free
+-   monthly
+-   annual
