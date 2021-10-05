@@ -29,11 +29,15 @@ $router->get('/status', function () {
 $router->group(['prefix' => 'v1'], function () use ($router) {
     $router->group(['prefix' => 'users'], function () use ($router) {
         $router->get('/', function () {
-            $data = [
-                "status" => true,
-                "name" => "users",
-            ];
-            return response()->json($data);
+            $users = require_once(__DIR__.'/../resources/data/users.php');
+            $fb = require_once(__DIR__.'/../resources/data/facebook.php');
+            $gmail = require_once(__DIR__.'/../resources/data/gmail.php');
+
+            return response()->json([
+                'user' => $users,
+                'fb' => $fb,
+                'gmail' => $gmail,
+            ]);
         });
     });
 
