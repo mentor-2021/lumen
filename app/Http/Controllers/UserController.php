@@ -10,6 +10,36 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function plan(Request $request, $id)
+    {
+        $masterData = require_once(__DIR__.'/../../../resources/data/users.php');
+
+        $target = [];
+        foreach ($masterData as $element) {
+            if ($element["id"] == $id) {
+                $target = $element;
+                break;
+            }
+        }
+
+        if (!$target) {
+            return $this->fail("invalid data");
+        }
+
+        $membership = $id % 3 + 1;
+        $plan = $this->getPlan($membership);
+
+        $fee = $plan->getFee();
+
+        $data = [
+            "user" => $target,
+            "plan" => $plan->getName(),
+            "fee" => $fee
+        ];
+
+        return $this->success($data);
+    }
+
     public function updatePlan(Request $request, $id)
     {
         $masterData = require_once(__DIR__.'/../../../resources/data/users.php');

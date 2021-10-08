@@ -50,6 +50,11 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
             ['uses' => 'UserController@detail']
         );
 
+        $router->get(
+            '/{id}/plan',
+            ['uses' => 'UserController@plan']
+        );
+
         $router->put(
             '/{id}/plan',
             ['uses' => 'UserController@updatePlan']
