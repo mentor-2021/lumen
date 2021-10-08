@@ -5,6 +5,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/project
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.4-node-browsers
@@ -54,6 +55,8 @@ jobs:
       - image: circleci/php:7.4-node-browsers
 
     steps:
+      - attach_workspace:
+          at: ~/project
       - run:
           name: "Run Unit Tests"
           command: ./vendor/bin/phpunit tests
