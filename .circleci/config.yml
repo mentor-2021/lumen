@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build_build:
+  build:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.4-node-browsers
@@ -55,4 +55,4 @@ jobs:
       # run tests with phpunit
       - run:
           name: "Run Tests"
-          command: ./vendor/bin/phpunit
+          command: ./vendor/bin/phpunit tests
