@@ -5,11 +5,18 @@ namespace App\Modules\Plan;
 class Plan
 {
     protected $fee = 0;
+    protected $name = '';
 
     public function getFee()
     {
         return $this->fee;
     }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
 
     public function getDiscount()
     {

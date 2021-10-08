@@ -4,9 +4,10 @@ namespace App\Modules\Plan;
 
 class Annual extends Plan
 {
-    function __construct()
+    public function __construct()
     {
         $this->fee = 100;
+        $this->name = 'annual';
     }
 
     public function getDiscount($period = 1)
