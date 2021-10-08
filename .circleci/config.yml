@@ -50,6 +50,9 @@ jobs:
       #     command: ./vendor/bin/phpunit tests
 
   test:
+    docker:
+      - image: circleci/php:7.4-node-browsers
+
     steps:
       - run:
           name: "Run Unit Tests"
