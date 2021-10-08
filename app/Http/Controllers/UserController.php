@@ -27,6 +27,7 @@ class UserController extends Controller
         }
 
         $membership = $id % 3 + 1;
+
         $plan = $this->getPlan($membership);
 
         $fee = $plan->getFee();
