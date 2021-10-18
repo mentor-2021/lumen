@@ -1,6 +1,5 @@
 <?php
 
-
 class UserTest extends TestCase
 {
     public function testUserPlan()
@@ -17,7 +16,8 @@ class UserTest extends TestCase
                         "gid" => "",
                     ],
                     "plan" => "monthly",
-                    "fee" => 10
+                    // "fee" => 10
+                    "fee" => 30
                 ],
                 "error" => null
             ]);
