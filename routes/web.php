@@ -21,7 +21,7 @@ $router->get('/', function () use ($router) {
 $router->get('/status', function () {
     $data = [
         "status" => true,
-        "name" => "lumen (heroku)",
+        "name" => "lumen (1810 11:44)",
     ];
     return response()->json($data);
 });
