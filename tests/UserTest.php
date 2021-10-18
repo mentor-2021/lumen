@@ -16,8 +16,7 @@ class UserTest extends TestCase
                         "gid" => "",
                     ],
                     "plan" => "monthly",
-                    // "fee" => 10
-                    "fee" => 30
+                    "fee" => 10
                 ],
                 "error" => null
             ]);
